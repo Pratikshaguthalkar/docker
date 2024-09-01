@@ -16,7 +16,6 @@ COPY mycodingprofileRWD.zip .
 
 #we are running few commands in /var/www/html location
 RUN unzip mycodingprofileRWD.zip
-RUN mv mycodingprofileRWD/*  .
 
 #we are exposing our container to port 80
 EXPOSE 80
