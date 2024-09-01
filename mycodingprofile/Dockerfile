@@ -1,7 +1,7 @@
 #we are attaching a base to our docker image
 FROM  ubuntu:latest
 #we are giving naming and filtering keys and values to our image
-LABEL DEVOPSENGG="PRATIKSHA"
+LABEL image="frontendstatic"
 
 #we are installing few packages in our image
 RUN apt update 
