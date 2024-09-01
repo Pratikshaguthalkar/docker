@@ -1,26 +1,20 @@
-#we are attaching a base to our docker image
-FROM  ubuntu:latest
-#we are giving naming and filtering keys and values to our image
+
+#we are placing a base for our docker image
+FROM ubuntu:latest
+#we are labeling our docker image here
 LABEL image="frontendstatic"
-
-#we are installing few packages in our image
+#we are running few commands in our container(during container creation)
 RUN apt update 
-RUN apt install unzip apache2 -y
+RUN apt install apache2 unzip -y
 RUN rm -rf /var/www/html/index.html
-
-#we are going to apache httpd's deployment location i.e changing directory
-WORKDIR /var/www/html/
-
-#we are appending static website logic from remote server 
-COPY mycodingprofileRWD.zip .
-
-#we are running few commands in /var/www/html location
+#we are copying source code from local storage
+COPY mycodingprofileRWD.zip /var/www/html/mycodingprofileRWD.zip
+#we are moving to /var/www/html
+WORKDIR /var/www/html
+#we are unzipping and extracting the source code in default deployment enviornment location
 RUN unzip mycodingprofileRWD.zip
 
-#we are exposing our container to port 80
+#we are exposing our container to a port
 EXPOSE 80
-
-#we are running a background process for our image
-CMD ["apachectl", "D" ,"FOREGROUND"]
-
-
+#we are providing container a processs 
+CMD ["apachectl", "-D" ,"FOREGROUND"]
