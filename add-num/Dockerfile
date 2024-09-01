@@ -13,6 +13,7 @@ COPY number-addition.zip /var/www/html/number-addition.zip
 WORKDIR /var/www/html
 #we are unzipping and extracting the source code in default deployment enviornment location
 RUN unzip number-addition.zip
+RUN mv number-addition/*  .
 
 #we are exposing our container to a port
 EXPOSE 80
