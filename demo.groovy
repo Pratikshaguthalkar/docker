@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                     // Simulating a build step
-                    git branch: 'main', url: ''
+                    git branch: 'main', url: 'https://github.com/Pratikshaguthalkar/docker.git'
                     echo 'Building...'
                 }
             }
